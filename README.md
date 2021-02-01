@@ -110,8 +110,8 @@ Image tools:
 Programming languages, package managers, and configuration:
 
 * [Bundler] for managing Ruby libraries
-* [Node.js] and [npm], for running apps and installing JavaScript packages, via [tj/n]
-* [Ruby] stable for writing general-purpose code, via [rbenv]
+* [Node.js] (latest LTS version) & [npm], for running apps and installing JavaScript packages, via [tj/n]
+* [Ruby] (latest stable version) for writing general-purpose code, via [rbenv]
 * [Yarn] for managing JavaScript packages
 
 [Bundler]: http://bundler.io/
@@ -119,7 +119,7 @@ Programming languages, package managers, and configuration:
 [Guetzli]: https://github.com/google/guetzli
 [Node.js]: http://nodejs.org/
 [npm]: https://www.npmjs.org/
-[n]: https://github.com/tj/n
+[tj/n]: https://github.com/tj/n
 [Ruby]: https://www.ruby-lang.org/en/
 [rbenv]: https://rbenv.org
 [Yarn]: https://yarnpkg.com/en/
