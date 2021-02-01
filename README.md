@@ -63,6 +63,8 @@ Or, attach the whole log file as an attachment.
 What it sets up
 ---------------
 
+First, it shows hidden (dot)files on your Mac.
+
 macOS tools:
 
 * [Homebrew] for managing operating system libraries.
