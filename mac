@@ -89,6 +89,10 @@ gem_install_or_update() {
   fi
 }
 
+fancy_echo "Showing hidden files ..."
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder
+
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
     /bin/bash -c \
@@ -102,7 +106,7 @@ if ! command -v brew >/dev/null; then
     export PATH="/usr/local/bin:$PATH"
 fi
 
-if brew list | grep -Fq brew-cask; then
+if brew list --formula | grep -Fq brew-cask; then
   fancy_echo "Uninstalling old Homebrew-Cask ..."
   brew uninstall --force brew-cask
 fi
@@ -142,14 +146,9 @@ brew "guetzli"
 brew "libyaml" # should come after openssl
 brew "coreutils"
 
-# Ruby
+# Ruby & Node tools
 brew "rbenv"
-rbenv init
-rbenv install -l
-
-# Node
 brew "n"
-n lts
 brew "yarn"
 
 # Databases
@@ -157,11 +156,18 @@ brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 EOF
 
+fancy_echo "Installing Node LTS (requires sudo) ..."
+sudo n lts
+fancy_echo "Installing Ruby stable ..."
+rbenv init
+rbenv install -l
+
 fancy_echo "Update heroku binary ..."
 brew unlink heroku
 brew link --force heroku
 
 # Apps
+fancy_echo "Installing apps ..."
 brew install "appcleaner"
 brew install "bbedit"
 brew install "chronosync"
