@@ -19,6 +19,7 @@ We support:
 * macOS High Sierra (10.13)
 * macOS Mojave (10.14)
 * macOS Catalina (10.15)
+* macOS Big Sur (11)
 
 Older versions may work but aren't regularly tested.
 Bug reports for older versions are welcome.
@@ -29,7 +30,7 @@ Install
 Download the script:
 
 ```sh
-curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
+curl --remote-name https://raw.githubusercontent.com/lachlanjc/laptop/main/mac
 ```
 
 Review the script (avoid running scripts you haven't read!):
@@ -49,10 +50,6 @@ Optionally, review the log:
 ```sh
 less ~/laptop.log
 ```
-
-Optionally, [install thoughtbot/dotfiles][dotfiles].
-
-[dotfiles]: https://github.com/thoughtbot/dotfiles#install
 
 Debugging
 ---------
@@ -108,21 +105,23 @@ GitHub tools:
 Image tools:
 
 * [ImageMagick] for cropping and resizing images
+* [Guetzli] for optimizing images
 
 Programming languages, package managers, and configuration:
 
-* [asdf-vm] for managing programming language versions
 * [Bundler] for managing Ruby libraries
-* [Node.js] and [npm], for running apps and installing JavaScript packages
-* [Ruby] stable for writing general-purpose code
+* [Node.js] and [npm], for running apps and installing JavaScript packages, via [tj/n]
+* [Ruby] stable for writing general-purpose code, via [rbenv]
 * [Yarn] for managing JavaScript packages
 
 [Bundler]: http://bundler.io/
 [ImageMagick]: http://www.imagemagick.org/
+[Guetzli]: https://github.com/google/guetzli
 [Node.js]: http://nodejs.org/
 [npm]: https://www.npmjs.org/
-[asdf-vm]: https://github.com/asdf-vm/asdf
+[n]: https://github.com/tj/n
 [Ruby]: https://www.ruby-lang.org/en/
+[rbenv]: https://rbenv.org
 [Yarn]: https://yarnpkg.com/en/
 
 Databases:
@@ -133,6 +132,22 @@ Databases:
 [Postgres]: http://www.postgresql.org/
 [Redis]: http://redis.io/
 
+Apps:
+
+* AppCleaner
+* BBEdit
+* ChronoSync
+* Cocktail
+* DaisyDisk
+* Figma
+* GitHub Desktop
+* Hyper
+* Slack
+* VSCode
+* Zoom
+
+(It’s easy to remove these apps/install different ones by quickly editing the end of `mac`.)
+
 It should take less than 15 minutes to install (depends on your machine).
 
 Customize in `~/.laptop.local`
@@ -140,7 +155,9 @@ Customize in `~/.laptop.local`
 
 Your `~/.laptop.local` is run at the end of the Laptop script.
 Put your customizations there.
-For example:
+
+<details>
+  <summary>Example customization file</summary>
 
 ```sh
 #!/bin/sh
@@ -177,6 +194,8 @@ if [ -r "$HOME/.rcrc" ]; then
   rcup
 fi
 ```
+
+</details>
 
 Write your customizations such that they can be run safely more than once.
 See the `mac` script for examples.
