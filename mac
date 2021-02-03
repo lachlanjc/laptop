@@ -158,6 +158,9 @@ EOF
 
 fancy_echo "Installing Node LTS (requires sudo) ..."
 sudo n lts
+yarn global add vercel
+yarn global add npm-check-updates
+
 fancy_echo "Installing Ruby stable ..."
 rbenv init
 rbenv install -l
