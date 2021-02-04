@@ -160,6 +160,7 @@ fancy_echo "Installing Node LTS (requires sudo) ..."
 sudo n lts
 yarn global add vercel
 yarn global add npm-check-updates
+yarn global add prettier
 
 fancy_echo "Installing Ruby stable ..."
 rbenv init
