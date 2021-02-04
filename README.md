@@ -134,6 +134,12 @@ Databases:
 [Postgres]: http://www.postgresql.org/
 [Redis]: http://redis.io/
 
+Node.js tools:
+
+* [Prettier](https://prettier.io) for formatting
+* [Vercel](https://vercel.com) for deployment
+* [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) for bulk updating packages
+
 Apps:
 
 * AppCleaner
