@@ -164,12 +164,19 @@ yarn global add npm-check-updates
 yarn global add prettier
 
 fancy_echo "Installing Ruby stable ..."
+echo "gem: --no-document" >> ~/.gemrc
 eval "$(rbenv init -)"
 latest_ruby() {
   rbenv install -l | grep -E '^\d' - | sort | tail -1
 }
 rbenv install $(latest_ruby)
 rbenv global $(latest_ruby)
+
+# Credit to https://github.com/laurendorman/komputer-maschine/blob/4e4ff2db260bcc0465c7084630ab88af9791b766/macos#L177
+sudo gem update --system
+gem_install_or_update 'bundler'
+number_of_cores=$(sysctl -n hw.ncpu)
+bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo "Updating Heroku binary ..."
 brew unlink heroku
