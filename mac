@@ -86,6 +86,7 @@ gem_install_or_update() {
     gem update "$@"
   else
     gem install "$@"
+    rbenv rehash
   fi
 }
 
@@ -170,31 +171,61 @@ latest_ruby() {
 rbenv install $(latest_ruby)
 rbenv global $(latest_ruby)
 
-fancy_echo "Update heroku binary ..."
+fancy_echo "Updating Heroku binary ..."
 brew unlink heroku
 brew link --force heroku
 
 # Apps
 fancy_echo "Installing apps ..."
-brew install "1password"
-brew install "appcleaner"
-brew install "bbedit"
-brew install "figma"
-brew install "github"
-brew install "google-chrome"
-brew install "hey"
-brew install "hyper"
-brew install "notion"
-brew install "slack"
-brew install "visual-studio-code"
-brew install "zoom"
 
-# VSCode
-code --install-extension StevenPhan.framer-syntax
-code --install-extension esbenp.prettier-vscode
-code --install-extension silvenon.mdx
-code --install-extension vscodevim.vim
-code --install-extension vscode-icons-team.vscode-icons
+applications=(
+  1password
+  appcleaner
+  bbedit
+  figma
+  github
+  google-chrome
+  hey
+  hyper
+  notion
+  slack
+  visual-studio-code
+  zoom
+)
+
+install_application() {
+  if test ! $(brew list | grep $application); then
+    brew install --cask --appdir="/Applications" $application
+    fancy_echo "$application installing"
+  else
+    fancy_echo "$application already installed. Skipping ..."
+  fi
+}
+
+for application in "${applications[@]}"
+  do install_application $application
+done
+
+# Clean up Homebrew files
+fancy_echo "Cleaning up Homebrew ..."
+brew cleanup
+
+# VSCode extensions
+vscode_extensions=(
+  StevenPhan.framer-syntax
+  esbenp.prettier-vscode
+  silvenon.mdx
+  vscodevim.vim
+  vscode-icons-team.vscode-icons
+)
+
+install_vscode_extension() {
+  code --install-extension $extension
+}
+
+for extension in "${vscode_extensions[@]}"
+  do install_vscode_extension $extension
+done
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
