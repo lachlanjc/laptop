@@ -127,7 +127,7 @@ Apps:
 - Hyper
 - Notion
 - Slack
-- VSCode (with the Prettier, Vim, & Framer Syntax 2 plugins)
+- VSCode (with the VSCode Icons, Prettier, Vim, MDX, & Framer Syntax 2 plugins)
 - Zoom
 
 (It’s easy to remove these apps/install different ones by quickly editing the end of `mac` with TextEdit/Vim/etc.)
