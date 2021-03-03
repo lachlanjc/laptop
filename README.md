@@ -8,6 +8,8 @@ based on what is already installed on the machine.
 
 This project is forked & derived from the [thoughtbot/laptop](https://github.com/thoughtbot/laptop) project, but customized for my own use.
 
+Read more: [**How I Automate Setting Up New Macs**](https://notebook.lachlanjc.com/2021-03-02_automate_setting_up_new_macs/)
+
 ## Install
 
 Download the script:
@@ -115,7 +117,7 @@ Node.js tools:
 - [Vercel](https://vercel.com) for deployment
 - [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) for bulk updating packages
 
-Apps:
+Applications (straight into your Applications folder! No DMGs!):
 
 - 1Password
 - AppCleaner
@@ -130,7 +132,7 @@ Apps:
 - VSCode (with the VSCode Icons, Prettier, Vim, MDX, & Framer Syntax 2 plugins)
 - Zoom
 
-(It’s easy to remove these apps/install different ones by quickly editing the end of `mac` with TextEdit/Vim/etc.)
+(It’s easy to remove these apps/install different ones by quickly editing the list inside `mac` with TextEdit/Vim/etc.)
 
 Other apps I sometimes add:
 
