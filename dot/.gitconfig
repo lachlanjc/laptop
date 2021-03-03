@@ -1,0 +1,39 @@
+[user]
+	email = lachlanjc@hey.com
+	name = Lachlan Campbell
+[push]
+  default = simple
+[alias]
+  co = checkout
+  cm = commit
+  st = status
+  br = branch
+  sz = stash
+  undo = reset --soft HEAD~1
+  recap = log -- since=\"00:00:00\" --no-merges --oneline --author=lachlanjc@hey.com
+  clear = add --all && git reset --hard
+  cmlist = log --pretty --oneline
+  today = diff --shortstat "@{1 day ago}"
+[color]
+    ui = auto
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow
+    frag = magenta
+    old = red
+    new = green
+    whitespace = red reverse
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+  [core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = /home/lachlanjc/.gitignore_global
+[credential]
+	helper = store
+[pull]
+	rebase = true
